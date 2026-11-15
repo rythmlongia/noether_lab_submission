@@ -1,0 +1,15 @@
+File: results.ayr  (big-endian, units=1 -> x1 to mm, H=33)
+
+Q1  P(84) = (0.0008, 0.0345, 0.0163) m = (0.8, 34.5, 16.3) mm
+    nearest vertex index 53699, position (1.2000, 34.4717, 16.3371) mm
+    distance 0.403 mm   solid_time 5.20 s   (raw 0.40271306969560755, 5.1990156173706055)
+
+Q2  t = 114 s: not yet fully solid = 36222, computed = 102749, fraction = 0.3525
+
+Q3  v = 42000, s = 84 mod 24 = 12: time = 50 s, T = 881 K = 607.85 °C
+
+Q4  n_vert=104778 n_tri=209568 n_snap=24 name="FH-203 housing"
+    bbox mm: x -60 .. 60.500003814697266, y -40 .. 40.000003814697266, z 6.637573335410707e-8 .. 45
+    CRC stored E5F14D4A, computed E5F14D4A, match: true
+
+Extra: solid_time range 4.426804065704346 .. 408.8167419433594 s (102749 computed); temperature range 310.25 .. 973 K

@@ -1,0 +1,27 @@
+# App probe (tools/electron_check/probe_grid.js: 5x4 grid of clicks, snapshot 3; Electron 45.3.2) vs the independent numpy reader (tools/reference_reader.py)
+# Compared at the precision the app displays: position 0.001 mm, solidification time 0.01 s, temperature 0.01 degC and K.
+# Reproduce: py -3 tools/electron_check/probe_compare.py tools <file.ayr> verification/windows/probe_<file>.json
+
+== results_small.ayr
+OK  v100    snap 3  app pos (-15.400, 1.400, 6.000)      ref (-15.400, 1.400, 6.000)  app st 78.15 s              ref 78.15  app T 598.85 °C (872.00 K)   ref 598.85 °C (872.00 K)
+OK  v439    snap 3  app pos (4.400, -5.200, 16.000)      ref (4.400, -5.200, 16.000)  app st 17.77 s              ref 17.77  app T 512.85 °C (786.00 K)   ref 512.85 °C (786.00 K)
+OK  v620    snap 3  app pos (10.434, 1.400, 15.600)      ref (10.434, 1.400, 15.600)  app st 15.03 s              ref 15.03  app T 502.35 °C (775.50 K)   ref 502.35 °C (775.50 K)
+OK  v45     snap 3  app pos (-17.600, -12.000, 2.400)    ref (-17.600, -12.000, 2.400)  app st 44.71 s              ref 44.71  app T 579.35 °C (852.50 K)   ref 579.35 °C (852.50 K)
+OK  v202    snap 3  app pos (-6.600, -9.600, 6.000)      ref (-6.600, -9.600, 6.000)  app st 64.99 s              ref 64.99  app T 593.35 °C (866.50 K)   ref 593.35 °C (866.50 K)
+OK  v435    snap 3  app pos (4.400, -6.988, 9.000)       ref (4.400, -6.988, 9.000)  app st 28.31 s              ref 28.31  app T 550.85 °C (824.00 K)   ref 550.85 °C (824.00 K)
+OK  v614    snap 3  app pos (10.977, 1.400, 6.800)       ref (10.977, 1.400, 6.800)  app st 57.28 s              ref 57.28  app T 589.35 °C (862.50 K)   ref 589.35 °C (862.50 K)
+OK  v530    snap 3  app pos (8.800, -9.600, 6.000)       ref (8.800, -9.600, 6.000)  app st 65.74 s              ref 65.74  app T 593.85 °C (867.00 K)   ref 593.85 °C (867.00 K)
+OK  v676    snap 3  app pos (15.400, -5.200, 6.000)      ref (15.400, -5.200, 6.000)  app st 75.92 s              ref 75.92  app T 598.35 °C (871.50 K)   ref 598.35 °C (871.50 K)
+9 probes, 0 mismatches
+
+== results.ayr
+OK  v12565  snap 3  app pos (-42.477, -1.200, 19.337)    ref (-42.477, -1.200, 19.337)  app st 5.75 s               ref 5.75  app T 577.85 °C (851.00 K)   ref 577.85 °C (851.00 K)
+OK  v65949  snap 3  app pos (12.723, -15.328, 45.000)    ref (12.723, -15.328, 45.000)  app st 103.20 s             ref 103.20  app T 677.85 °C (951.00 K)   ref 677.85 °C (951.00 K)
+OK  v5354   snap 3  app pos (-53.277, -37.587, 7.937)    ref (-53.277, -37.587, 7.937)  app st 44.43 s              ref 44.43  app T 648.85 °C (922.00 K)   ref 648.85 °C (922.00 K)
+OK  v21981  snap 3  app pos (-27.477, -17.128, 8.000)    ref (-27.477, -17.128, 8.000)  app st 79.52 s              ref 79.52  app T 671.35 °C (944.50 K)   ref 671.35 °C (944.50 K)
+OK  v66928  snap 3  app pos (13.805, -17.128, 25.337)    ref (13.805, -17.128, 25.337)  app st 170.63 s             ref 170.63  app T 686.35 °C (959.50 K)   ref 686.35 °C (959.50 K)
+OK  v86321  snap 3  app pos (37.923, -1.200, 26.537)     ref (37.923, -1.200, 26.537)  app st 5.58 s               ref 5.58  app T 576.35 °C (849.50 K)   ref 576.35 °C (849.50 K)
+OK  v42950  snap 3  app pos (-5.877, -39.774, 6.137)     ref (-5.877, -39.774, 6.137)  app st 65.45 s              ref 65.45  app T 665.35 °C (938.50 K)   ref 665.35 °C (938.50 K)
+OK  v71197  snap 3  app pos (18.723, -23.128, 8.000)     ref (18.723, -23.128, 8.000)  app st 80.72 s              ref 80.72  app T 671.85 °C (945.00 K)   ref 671.85 °C (945.00 K)
+OK  v97884  snap 3  app pos (53.523, -25.528, 26.000)    ref (53.523, -25.528, 26.000)  app st 327.68 s             ref 327.68  app T 692.85 °C (966.00 K)   ref 692.85 °C (966.00 K)
+9 probes, 0 mismatches

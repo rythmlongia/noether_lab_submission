@@ -1,0 +1,179 @@
+
+> ayr-viewer@1.0.0 test
+> node --test
+
+TAP version 13
+# Subtest: f16ToNumber: special and boundary values
+ok 1 - f16ToNumber: special and boundary values
+  ---
+  duration_ms: 2.5814
+  ...
+# Subtest: f16 lookup table agrees with the formula for every case (and preserves -0)
+ok 2 - f16 lookup table agrees with the formula for every case (and preserves -0)
+  ---
+  duration_ms: 11.0258
+  ...
+# Subtest: f16 decoding through a whole file, both byte orders
+ok 3 - f16 decoding through a whole file, both byte orders
+  ---
+  duration_ms: 1.4759
+  ...
+# Subtest: little-endian file decodes to the values written [IN]
+ok 4 - little-endian file decodes to the values written [IN]
+  ---
+  duration_ms: 3.7972
+  ...
+# Subtest: big-endian file decodes to the values written [IN]
+ok 5 - big-endian file decodes to the values written [IN]
+  ---
+  duration_ms: 0.6365
+  ...
+# Subtest: header fields after flags really use the file byte order (n_vert > 255 so both bytes matter)
+ok 6 - header fields after flags really use the file byte order (n_vert > 255 so both bytes matter)
+  ---
+  duration_ms: 1.9818
+  ...
+# Subtest: header lengths that put sections at offsets that are not multiples of 4
+ok 7 - header lengths that put sections at offsets that are not multiples of 4
+  ---
+  duration_ms: 1.6347
+  ...
+# Subtest: parser works on a Uint8Array view that does not start at byte 0 of its buffer
+ok 8 - parser works on a Uint8Array view that does not start at byte 0 of its buffer
+  ---
+  duration_ms: 0.2679
+  ...
+# Subtest: NaN solidification times: any bit pattern is NaN; min/max skip them; colour is grey
+ok 9 - NaN solidification times: any bit pattern is NaN; min/max skip them; colour is grey
+  ---
+  duration_ms: 0.8536
+  ...
+# Subtest: all-NaN array gives NaN range, not Infinity
+ok 10 - all-NaN array gives NaN range, not Infinity
+  ---
+  duration_ms: 0.928
+  ...
+# Subtest: viridis table has 256 entries and the matplotlib end points
+ok 11 - viridis table has 256 entries and the matplotlib end points
+  ---
+  duration_ms: 0.1833
+  ...
+# Subtest: truncated files are rejected with a size message
+ok 12 - truncated files are rejected with a size message
+  ---
+  duration_ms: 1.0055
+  ...
+# Subtest: a single corrupted byte anywhere in the data is caught by the CRC
+ok 13 - a single corrupted byte anywhere in the data is caught by the CRC
+  ---
+  duration_ms: 0.5395
+  ...
+# Subtest: a corrupted count in the header is caught by the size rule
+ok 14 - a corrupted count in the header is caught by the size rule
+  ---
+  duration_ms: 0.1496
+  ...
+# Subtest: magic, reserved flags, version and units are checked
+ok 15 - magic, reserved flags, version and units are checked
+  ---
+  duration_ms: 0.4405
+  ...
+# Subtest: triangle index n_vert-1 is accepted, n_vert is rejected
+ok 16 - triangle index n_vert-1 is accepted, n_vert is rejected
+  ---
+  duration_ms: 0.2505
+  ...
+# Subtest: times must be strictly increasing (equal and NaN rejected)
+ok 17 - times must be strictly increasing (equal and NaN rejected)
+  ---
+  duration_ms: 0.2223
+  ...
+# Subtest: n_snap = 0 is rejected
+ok 18 - n_snap = 0 is rejected
+  ---
+  duration_ms: 0.1173
+  ...
+# Subtest: CRC-32 check value [FMT 3.6] and agreement with an independent bitwise CRC
+ok 19 - CRC-32 check value [FMT 3.6] and agreement with an independent bitwise CRC
+  ---
+  duration_ms: 0.5083
+  ...
+# Subtest: results_small.ayr matches FORMAT.md section 6.1
+ok 20 - results_small.ayr matches FORMAT.md section 6.1
+  ---
+  duration_ms: 5.5129
+  ...
+# Subtest: window is created with the hardened webPreferences
+ok 21 - window is created with the hardened webPreferences
+  ---
+  duration_ms: 24.5185
+  ...
+# Subtest: Ctrl+Shift+I / F12 toggle DevTools once per key press (keyDown only, not keyUp)
+ok 22 - Ctrl+Shift+I / F12 toggle DevTools once per key press (keyDown only, not keyUp)
+  ---
+  duration_ms: 0.6724
+  ...
+# Subtest: the exact list of IPC channels
+ok 23 - the exact list of IPC channels
+  ---
+  duration_ms: 1.1233
+  ...
+# Subtest: IPC from another origin is refused
+ok 24 - IPC from another origin is refused
+  ---
+  duration_ms: 0.8616
+  ...
+# Subtest: app:// serves files under src/ only, with a CSP header
+ok 25 - app:// serves files under src/ only, with a CSP header
+  ---
+  duration_ms: 36.8849
+  ...
+# Subtest: solver cannot run before a file was validated; fail-at is validated
+ok 26 - solver cannot run before a file was validated; fail-at is validated
+  ---
+  duration_ms: 8.9383
+  ...
+# Subtest: LineSplitter: lines split across chunks, CRLF, and a UTF-8 character split across chunks
+ok 27 - LineSplitter: lines split across chunks, CRLF, and a UTF-8 character split across chunks
+  ---
+  duration_ms: 1.6339
+  ...
+# Subtest: full run: finished, live progress, path with spaces, HTML name kept as text, all lines in order
+ok 28 - full run: finished, live progress, path with spaces, HTML name kept as text, all lines in order
+  ---
+  duration_ms: 4487.7389
+  ...
+# Subtest: non-ASCII case name (CJK, umlaut, Ø) arrives intact
+ok 29 - non-ASCII case name (CJK, umlaut, Ø) arrives intact
+  ---
+  duration_ms: 312.5708
+  ...
+# Subtest: --fail-at 70: failed with exit code 3 and the error lines
+ok 30 - --fail-at 70: failed with exit code 3 and the error lines
+  ---
+  duration_ms: 1727.9184
+  ...
+# Subtest: bad case file: failed with exit code 2
+ok 31 - bad case file: failed with exit code 2
+  ---
+  duration_ms: 131.8638
+  ...
+# Subtest: missing python: failed, not crashed
+ok 32 - missing python: failed, not crashed
+  ---
+  duration_ms: 8.9633
+  ...
+# Subtest: cancel: cancelled state and no solver process (controller or worker) left, 3 times
+ok 33 - cancel: cancelled state and no solver process (controller or worker) left, 3 times
+  ---
+  duration_ms: 18131.742
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 25091.3664

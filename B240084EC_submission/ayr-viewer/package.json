@@ -1,0 +1,19 @@
+{
+  "name": "ayr-viewer",
+  "version": "1.0.0",
+  "description": "Ayrton .ayr results viewer and solver runner (Noether Labs task round)",
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "mutation": "node tools/mutation_check.js",
+    "answers": "node tools/answers.js"
+  },
+  "devDependencies": {
+    "electron": "^45.3.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

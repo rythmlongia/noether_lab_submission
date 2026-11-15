@@ -1,0 +1,38 @@
+{
+ "main_details": "Case name\nFH-203 housing\nByte order\nbig-endian\nUnits in file\nmillimetre\nVertices\n104,778\nTriangles\n209,568\nSnapshots\n24\nBounding box (mm)\nx -60.000 … 60.500\ny -40.000 … 40.000\nz 0.000 … 45.000\nSolid. time\n4.43 … 408.82 s (102,749 computed, 2,029 not computed)\nTemperature\n37.10 … 699.85 °C (all snapshots)\nCRC-32\nstored E5F14D4A, computed E5F14D4A ✓\nLoad time\n93 ms (worker parse 60 ms)",
+ "main_case": "“FH-203 housing”",
+ "legend_solid": "4.4\n100\n200\n300\n408.8\ns",
+ "probe_center": "Vertex index\n66946\nPosition (mm)\n(13.805, -17.128, 36.137)\nSolidification time\n168.89 s\nTemperature @ snapshot 0 (t = 0.00 s)\n699.85 °C (973.00 K)",
+ "slider_t114": "36,222 of 102,749 computed vertices not yet fully solid (35.25 %)",
+ "snap12": "SNAPSHOT\nSnapshot 12 of 24, t = 50.00 s\n◀ Prev\nNext ▶",
+ "legend_temp": "37.1\n200\n400\n600\n699.9\n°C",
+ "legend_title_temp": "SURFACE TEMPERATURE (SAME SCALE FOR ALL SNAPSHOTS)",
+ "probe_v42000": null,
+ "bench_slider_swiftshader": "Time slider sweep, 32 frames in 5 s, 104,778 vertices\nframe interval: mean 162.03 ms (6.2 fps), median 162.10, p95 183.20, max 218.80 ms\ndraw call CPU: median 0.10 ms, max 0.50 ms\ncanvas 1040x531 px, devicePixelRatio 1",
+ "bench_orbit_swiftshader": "Orbit 360°, 32 frames in 5 s, 104,778 vertices\nframe interval: mean 160.43 ms (6.2 fps), median 159.10, p95 191.50, max 207.30 ms\ndraw call CPU: median 0.10 ms, max 3.10 ms\ncanvas 1040x531 px, devicePixelRatio 1",
+ "small_details": "Case name\ndebug_small\nByte order\nlittle-endian\nUnits in file\nmillimetre\nVertices\n778\nTriangles\n1,556\nSnapshots\n6\nBounding box (mm)\nx -20.000 … 20.000\ny -12.000 … 12.000\nz 0.000 … 16.000\nSolid. time\n14.67 … 96.42 s (770 computed, 8 not computed)\nTemperature\n273.35 … 699.85 °C (all snapshots)\nCRC-32\nstored 0C736579, computed 0C736579 ✓\nLoad time\n5 ms (worker parse 0 ms)",
+ "bad_files": {
+  "bad_magic.ayr": "Cannot open bad_magic.ayr: Not an .ayr file: magic bytes are 42 59 52 4e, expected 41 59 52 4e (\"AYRN\").",
+  "bad_units.ayr": "Cannot open bad_units.ayr: Invalid units value 7 (must be 0 = metre or 1 = millimetre).",
+  "extra_trailing_byte.ayr": "Cannot open extra_trailing_byte.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 40515 bytes. The file has extra bytes at the end or its header is corrupted.",
+  "one_byte_flipped_in_positions.ayr": "Cannot open one_byte_flipped_in_positions.ayr: Checksum mismatch: the file stores CRC-32 0C736579 but its contents give FC94727C. The file is corrupted.",
+  "one_byte_flipped_in_temperatures.ayr": "Cannot open one_byte_flipped_in_temperatures.ayr: Checksum mismatch: the file stores CRC-32 0C736579 but its contents give D375E8BB. The file is corrupted.",
+  "reserved_flag_bit.ayr": "Cannot open reserved_flag_bit.ayr: Reserved bits are set in the flags byte (0x04); only bit 0 may be used.",
+  "times_not_increasing.ayr": "Cannot open times_not_increasing.ayr: Snapshot times are not strictly increasing: times[0] = 5 s, times[1] = 5 s.",
+  "tiny_10_bytes.ayr": "Cannot open tiny_10_bytes.ayr: File is too short to be an .ayr file (10 bytes, at least 23 needed).",
+  "triangle_index_out_of_range.ayr": "Cannot open triangle_index_out_of_range.ayr: Triangle 3 refers to vertex 9, but the mesh has only 4 vertices (indices must be < n_vert).",
+  "truncated_half.ayr": "Cannot open truncated_half.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 20257 bytes. The file is truncated or its header is corrupted.",
+  "truncated_last_byte.ayr": "Cannot open truncated_last_byte.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 40513 bytes. The file is truncated or its header is corrupted.",
+  "version_2.ayr": "Cannot open version_2.ayr: Unsupported format version 2 (only version 1 is supported)."
+ },
+ "html_case_name_shown_as": "“<img src=x onerror=\"alert(1)\">”",
+ "html_case_img_elements": 0,
+ "progress_text": "42.5 %",
+ "log_rows_in_dom": 20,
+ "after_log_img_elements": 0,
+ "end_state": "failed (exit code 3) | Failed – exit code 3.\nLast error output:\nERROR: linear solver for T diverged at step 140 (residual 1.5e+06 > 1e+06)\nERROR: aborting run",
+ "alerts_fired": 0,
+ "page_errors": [
+  "Failed to load resource: the server responded with a status of 404 (File not found)"
+ ]
+}

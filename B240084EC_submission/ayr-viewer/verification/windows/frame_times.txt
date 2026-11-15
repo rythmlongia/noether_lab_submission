@@ -1,0 +1,36 @@
+Frame times, in-app "Frame-time benchmark" panel, results.ayr (104,778 vertices, 209,568 triangles), Solidification-time / Solid-at-t mode.
+Machine: ASUS VivoBook X515EA, Intel Core i5-1135G7 (4C/8T, 2.4 GHz), Intel Iris Xe Graphics (integrated), 7.7 GB RAM,
+display 1920x1080 @ 60 Hz, Windows scaling 125 % (devicePixelRatio 1.25). Window 1400x900, canvas 1283x568 device px.
+Windows 11 Home 10.0.26200. Window in front and focused (document.visibilityState = visible, hasFocus = true).
+Each run: 5 s. "frame interval" = difference of consecutive requestAnimationFrame timestamps. "draw call CPU" = JS time of Viewer.draw().
+The benchmarks were started over the DevTools protocol (tools/electron_check/cdp.mjs) by clicking the panel's buttons.
+
+=== Electron 45.3.2 (the submitted version) ===
+
+A) Normal app (V-sync on, as a user runs it). The interval cannot go below 16.67 ms on a 60 Hz display.
+
+run 1 slider: 301 frames; interval mean 16.66 ms (60.0 fps), median 16.70, p95 17.30, max 21.30 ms; draw CPU median 0.20 ms, max 1.70 ms
+run 1 orbit:  300 frames; interval mean 16.66 ms (60.0 fps), median 16.70, p95 16.80, max 17.00 ms; draw CPU median 0.10 ms, max 0.40 ms
+run 2 slider: 299 frames; interval mean 16.78 ms (59.6 fps), median 16.70, p95 17.20, max 54.40 ms; draw CPU median 0.20 ms, max 1.20 ms
+run 2 orbit:  300 frames; interval mean 16.66 ms (60.0 fps), median 16.70, p95 16.90, max 17.20 ms; draw CPU median 0.10 ms, max 0.50 ms
+run 3 slider: 301 frames; interval mean 16.65 ms (60.1 fps), median 16.70, p95 17.20, max 17.80 ms; draw CPU median 0.20 ms, max 0.60 ms
+run 3 orbit:  300 frames; interval mean 16.67 ms (60.0 fps), median 16.70, p95 17.10, max 17.30 ms; draw CPU median 0.10 ms, max 0.30 ms
+(The first attempt at run 3 did not finish within its 6 s wait: requestAnimationFrame stops while a window is hidden or
+ occluded, and something on the desktop probably covered it, which may also explain the 54.4 ms spike in run 2.
+ It was repeated after a relaunch; the repeat is the "run 3" shown.)
+
+B) Started with  npx electron . --disable-gpu-vsync --disable-frame-rate-limit
+   (no 60 Hz cap, so the interval shows the real cost of one frame = headroom below the 16.7 ms budget)
+
+uncapped run 1 slider: 1251 frames; interval mean 4.00 ms (250.1 fps), median 4.00, p95 5.00, max 8.50 ms
+uncapped run 1 orbit:  2544 frames; interval mean 1.96 ms (509.3 fps), median 1.80, p95 3.20, max 7.60 ms
+uncapped run 2 slider: 1195 frames; interval mean 4.18 ms (239.2 fps), median 4.10, p95 5.10, max 7.20 ms
+uncapped run 2 orbit:  2569 frames; interval mean 1.94 ms (515.4 fps), median 1.70, p95 3.80, max 12.60 ms
+
+Reading: orbit costs ~2 ms per frame on the integrated GPU. A slider frame costs ~4 ms because each step also runs the
+not-yet-solid count over all 104,778 vertices on the CPU and updates the text (the GPU side is one uniform).
+Both are far below 16.7 ms, so at 60 Hz every frame is on time apart from rare outliers.
+
+=== Electron 38.8.6 (before the upgrade, same machine, for comparison) ===
+capped:   slider median 16.70 ms, p95 17.0-17.2, max 17.6-18.8 (3 runs); orbit median 16.70, p95 16.9-17.1, max 17.1-38.3 (3 runs)
+uncapped: slider mean 3.59-3.64 ms, orbit mean 1.73-1.99 ms (2 runs each)

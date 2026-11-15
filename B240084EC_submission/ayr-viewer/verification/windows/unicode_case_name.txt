@@ -1,0 +1,5 @@
+# Non-ASCII case name on Windows 11 (Python 3.13.5): the app's runner vs a naive spawn without PYTHONIOENCODING
+# Reproduce: node tools/electron_check/unicode_check.mjs .
+
+app runner : finished, exit 0 | Case name : 鋳造ハウジング Gehäuse – Ø40 | exact match: true
+naive spawn: exit 1 | (no Case name line) | last stderr: UnicodeEncodeError: 'charmap' codec can't encode characters in position 12-18: character maps to <undefined>

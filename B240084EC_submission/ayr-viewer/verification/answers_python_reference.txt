@@ -1,0 +1,14 @@
+byte order: big  units: 1  H: 33
+n_vert, n_tri, n_snap: 104778 209568 24
+name: 'FH-203 housing'
+times: [0.0, 1.0, 2.0, 4.0, 6.0, 8.0, 10.0, 15.0, 20.0, 25.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 125.0, 150.0, 200.0, 250.0, 300.0, 350.0, 400.0, 500.0]
+bbox mm min: [-60.0, -40.0, 6.637573335410707e-08]  max: [60.500003814697266, 40.000003814697266, 45.0]
+tri max index: 104777  times increasing: True
+NaN solid_time: 2029  computed: 102749
+solid_time min/max: 4.426804065704346 408.8167419433594
+temperature min/max (K) over all snapshots: 310.25 973.0
+CRC stored E5F14D4A computed E5F14D4A match=True
+
+Q1 P(R) mm: [0.8, 34.5, 16.299999999999997]  nearest vertex 53699  dist 0.402713 mm  (2nd nearest 0.691128 mm)  solid_time 5.199016 s
+Q2 t=114 s: not solid 36222 of 102749 computed, fraction 0.352529
+Q3 v=42000 s=12 time=np.float64(50.0) s  T=np.float64(881.0) K  = 607.8500 C

@@ -1,0 +1,4 @@
+node_modules/
+*.log
+.solver_heartbeat
+__pycache__/

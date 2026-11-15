@@ -1,0 +1,5 @@
+naive spawn (no -u, PYTHONUNBUFFERED unset): first PROGRESS > 0 received after NOTHING within 3 s
+naive cancel = child.kill() (SIGTERM to the controller only). 1 s later, ps shows:
+ 2363 Sl   node tools/naive_runner_demo.js solver/fake_solver.py tests/fixtures/results_small.ayr
+ 2371 Sl   /usr/local/bin/python3 /home/claude/ayr-viewer/solver/fake_solver.py --_worker --case tests/fixtures/results_small.ayr --steps 200 --seed 0 --step-time 0.4 --heartbeat /home/claude/ayr-viewer/tests/fixtures/.solver_heartbeat
+

@@ -1,0 +1,16 @@
+# Extra solver checks, 2026-11-15T07:59:17.685Z, Electron 45.3.2
+# log limit notice shown before any run: "Log keeps the last 200,000 lines (stdout = OUT, stderr = ERR in red)."
+
+## --fail-at 5: failed (exit code 3) | solver processes right after: 0 | heartbeat files left: []
+   3 s later: solver processes 0
+
+## --fail-at 30: failed (exit code 3) | solver processes right after: 0 | heartbeat files left: []
+   3 s later: solver processes 0
+
+## during the diagnostics burst (15-26 s into a run, orbiting + scrolling the log every 200 ms):
+   667 frames; frame interval median 16.7 ms, p95 16.9, p99 17.0, max 17.0 ms; intervals > 50 ms: 0
+   log scrolled 55 times; rows in DOM 20; progress at the end 31.5 %
+   Cancel clicked -> "cancelled" after 444 ms; solver processes 0; heartbeat files []
+
+## window closed during a run: solver processes before 2, after close 0, 3 s later 0; heartbeat files []
+   electron.exe still running: false

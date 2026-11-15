@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; worker-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'">
+  <title>Ayrton results viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="toolbar">
+    <button id="btn-open" class="primary">Open .ayr…</button>
+    <div class="file-info"><span id="file-name" class="muted">No file open</span> <span id="case-name" class="case-name"></span></div>
+    <div class="modes" role="tablist">
+      <button class="mode active" data-mode="solid">Solidification time</button>
+      <button class="mode" data-mode="slider">Solid at time t</button>
+      <button class="mode" data-mode="temp">Temperature</button>
+    </div>
+    <div id="perf" class="perf" title="Frame time of the last second: interval between frames and CPU time spent drawing">–</div>
+  </header>
+
+  <div id="error" class="error" hidden role="alert"></div>
+  <div id="loading" class="loading" hidden>Reading and validating…</div>
+
+  <main class="layout">
+    <section class="view">
+      <canvas id="gl"></canvas>
+      <div class="hint">Left-drag: orbit · Right-drag or Shift+drag: pan · Wheel: zoom · Click: probe · <button id="btn-frame" class="link">Reset view</button></div>
+    </section>
+
+    <aside class="side">
+      <div class="panel">
+        <h3 id="legend-title">Legend</h3>
+        <div class="legend">
+          <div id="legend-bar" class="legend-bar"></div>
+          <div id="legend-ticks" class="legend-ticks"></div>
+        </div>
+        <div id="legend-extra" class="legend-extra"></div>
+        <div class="legend-item"><span class="swatch grey"></span><span id="grey-text">Grey: not computed (NaN in the file, e.g. cells next to the ingate)</span></div>
+      </div>
+
+      <div class="panel" id="panel-slider" hidden>
+        <h3>Time t</h3>
+        <input id="t-slider" type="range" min="0" max="1" step="any" value="0">
+        <div class="row"><span>t = <b id="t-value">–</b> s</span></div>
+        <div id="t-stats" class="muted small"></div>
+      </div>
+
+      <div class="panel" id="panel-snap" hidden>
+        <h3>Snapshot</h3>
+        <input id="snap-slider" type="range" min="0" max="0" step="1" value="0">
+        <div class="row"><span>Snapshot <b id="snap-index">–</b> of <span id="snap-count">–</span>, t = <b id="snap-time">–</b> s</span></div>
+        <div class="row small"><button id="snap-prev">◀ Prev</button><button id="snap-next">Next ▶</button></div>
+      </div>
+
+      <div class="panel">
+        <h3>Probe</h3>
+        <div id="probe" class="probe muted">Click on the part.</div>
+      </div>
+
+      <div class="panel">
+        <h3>File</h3>
+        <div id="file-details" class="details muted small">–</div>
+      </div>
+
+      <div class="panel">
+        <h3>Frame-time benchmark</h3>
+        <div class="row small"><button id="bench-slider">Drag time slider (5 s)</button><button id="bench-orbit">Orbit (5 s)</button></div>
+        <pre id="bench-out" class="bench small"></pre>
+      </div>
+    </aside>
+  </main>
+
+  <section class="solver">
+    <div class="solver-bar">
+      <button id="btn-run" class="primary" disabled>Run solver</button>
+      <button id="btn-cancel" disabled>Cancel</button>
+      <label class="small">fail at % <input id="fail-at" type="number" min="0" max="100" step="1" placeholder="none"></label>
+      <progress id="progress" max="100" value="0"></progress>
+      <span id="progress-text" class="small">0 %</span>
+      <span id="run-state" class="state">idle</span>
+      <span class="spacer"></span>
+      <span class="small">Python: <span id="py-path" class="mono muted">not set</span></span>
+      <button id="btn-detect" class="small">Detect</button>
+      <button id="btn-browse-py" class="small">Browse…</button>
+      <span class="small">Solver: <span id="solver-path" class="mono muted"></span></span>
+      <button id="btn-browse-solver" class="small">…</button>
+    </div>
+    <div id="run-result" class="run-result" hidden></div>
+    <div id="log-notice" class="log-notice small"></div>
+    <div id="log" class="log" tabindex="0"></div>
+  </section>
+
+  <script src="../shared/colormap.js"></script>
+  <script src="viewer.js"></script>
+  <script src="logview.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

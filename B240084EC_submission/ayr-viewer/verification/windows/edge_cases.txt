@@ -1,0 +1,19 @@
+Unusual but VALID .ayr files, opened in the real Electron app on Windows (dialog stubbed, see tools/electron_check/).
+Run first on Electron 38.8.6 (found the problem, verified the fix) and again on 45.3.2 after the upgrade (same results as "AFTER fix").
+Files built with tests/ayrWriter.js (tetrahedron unless stated). For each: open, switch Solid-at-t / Temperature / Solid modes,
+click the canvas centre. Checked: no exception in the page, sensible text.
+
+metres_le          units=0, positions 0.01/0.02/0.03 m  -> opened, bbox x 0..10, y 0..20, z 0..30 mm (metres converted), legend 5.0 10 20 30 40.0 s
+metres_be          same, big-endian                      -> identical to metres_le
+one_snapshot       n_snap = 1                            -> opened, all modes work
+no_triangles       n_tri = 0                             -> opened, nothing to draw, probe "No part under the cursor."
+one_vertex         n_vert = 1, n_tri = 0                 -> opened, bbox 1..1 / 2..2 / 3..3, "1 of 1 computed vertices not yet fully solid"
+empty_name         name_len = 0 (H = 19)                 -> opened
+flat_equal_values  all solid times 10 s, all temps 973 K -> opened, legend "10.0 10.0 s" (degenerate range drawn mid-scale)
+all_nan            every solid time and temperature NaN  -> opened, all grey.
+                   BEFORE fix: legend "NaNNaN" off the left edge, stats "0 of 0 (NaN %)", slider max NaN.
+                   AFTER fix:  legend "no computed values (all grey)", stats "No vertex has a computed solidification time in this file."
+zero_vertices      n_vert = 0, n_tri = 0                 -> opened.
+                   BEFORE fix: bbox "x Infinity … -Infinity …"; AFTER fix: "none (no vertices)"
+
+Page exceptions in all of these: 0 (before and after the fix; the old behaviour was wrong text, not a crash).

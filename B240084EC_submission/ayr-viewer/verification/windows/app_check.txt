@@ -1,0 +1,84 @@
+# Windows Electron app check, 2026-11-15T07:41:36.763Z
+# Windows 11 Home Single Language | Node v22.13.0 | Electron 45.3.2
+
+## open results_small.ayr: ok, case “debug_small”
+  Case name
+debug_small
+  Byte order
+little-endian
+  Units in file
+millimetre
+  Vertices
+778
+  Triangles
+1,556
+  Snapshots
+6
+  Bounding box (mm)
+x -20.000 … 20.000
+y -12.000 … 12.000
+z 0.000 … 16.000
+  Solid. time
+14.67 … 96.42 s (770 computed, 8 not computed)
+  Temperature
+273.35 … 699.85 °C (all snapshots)
+  CRC-32
+stored 0C736579, computed 0C736579 ✓
+  Load time
+23 ms (worker parse 11 ms)
+
+## open results.ayr: ok, case “FH-203 housing”
+  Case name
+  FH-203 housing
+  Byte order
+big-endian
+  Units in file
+millimetre
+  Vertices
+104,778
+  Triangles
+209,568
+  Snapshots
+24
+  Bounding box (mm)
+x -60.000 … 60.500
+y -40.000 … 40.000
+z 0.000 … 45.000
+  Solid. time
+4.43 … 408.82 s (102,749 computed, 2,029 not computed)
+  Temperature
+37.10 … 699.85 °C (all snapshots)
+  CRC-32
+stored E5F14D4A, computed E5F14D4A ✓
+  Load time
+100 ms (worker parse 45 ms)
+
+## Q2 in the app (Solid at time t): t = 114.0 s: 36,222 of 102,749 computed vertices not yet fully solid (35.25 %)
+## Q3 snapshot in the app (Temperature mode): snapshot 12, t = 50.00 s, legend 37.1 200 400 600 699.9 °C
+
+## corrupted files (expect: message, no mesh, Run disabled)
+  REJECTED  run-disabled=true  bad_magic.ayr: Cannot open bad_magic.ayr: Not an .ayr file: magic bytes are 42 59 52 4e, expected 41 59 52 4e ("AYRN").
+  REJECTED  run-disabled=true  bad_units.ayr: Cannot open bad_units.ayr: Invalid units value 7 (must be 0 = metre or 1 = millimetre).
+  REJECTED  run-disabled=true  extra_trailing_byte.ayr: Cannot open extra_trailing_byte.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 40515 bytes. The file has extra bytes at the end or its header is corrupted.
+  REJECTED  run-disabled=true  one_byte_flipped_in_positions.ayr: Cannot open one_byte_flipped_in_positions.ayr: Checksum mismatch: the file stores CRC-32 0C736579 but its contents give FC94727C. The file is corrupted.
+  REJECTED  run-disabled=true  one_byte_flipped_in_temperatures.ayr: Cannot open one_byte_flipped_in_temperatures.ayr: Checksum mismatch: the file stores CRC-32 0C736579 but its contents give D375E8BB. The file is corrupted.
+  REJECTED  run-disabled=true  reserved_flag_bit.ayr: Cannot open reserved_flag_bit.ayr: Reserved bits are set in the flags byte (0x04); only bit 0 may be used.
+  REJECTED  run-disabled=true  times_not_increasing.ayr: Cannot open times_not_increasing.ayr: Snapshot times are not strictly increasing: times[0] = 5 s, times[1] = 5 s.
+  REJECTED  run-disabled=true  tiny_10_bytes.ayr: Cannot open tiny_10_bytes.ayr: File is too short to be an .ayr file (10 bytes, at least 23 needed).
+  REJECTED  run-disabled=true  triangle_index_out_of_range.ayr: Cannot open triangle_index_out_of_range.ayr: Triangle 3 refers to vertex 9, but the mesh has only 4 vertices (indices must be < n_vert).
+  REJECTED  run-disabled=true  truncated_half.ayr: Cannot open truncated_half.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 20257 bytes. The file is truncated or its header is corrupted.
+  REJECTED  run-disabled=true  truncated_last_byte.ayr: Cannot open truncated_last_byte.ayr: File size is wrong: the header (n_vert=778, n_tri=1556, n_snap=6, name_len=11) requires exactly 40514 bytes, but the file has 40513 bytes. The file is truncated or its header is corrupted.
+  REJECTED  run-disabled=true  version_2.ayr: Cannot open version_2.ayr: Unsupported format version 2 (only version 1 is supported).
+
+## HTML case name: shown as "“<img src=x onerror=\"alert(1)\">”", <img> elements in page: 0
+## full run on it: finished | Finished – exit code 0 after 81.5 s. | progress 100.0 % | 201 distinct progress values seen while polling | log rows in DOM 14 | <img> 0 | alert() calls 0
+   solver processes afterwards: 0
+
+## --fail-at 70: failed (exit code 3) | Failed – exit code 3. / Last error output: / WARNING: 244 cells with negative liquid fraction clipped to 0 / WARNING: 364 cells with negative liquid fraction clipped to 0 / WARNING: 58 cells with negative liquid fraction clipped to 0 / WARNING: 8 cells with negative liquid fraction clipped to 0 / WARNING: boundary patch <ingate> has no velocity BC; using zeroGradient / WARNING: boundary patch <ingate> has no velocity BC; using zeroGradient / ERROR: linear solver for T diverged at step 140 (residual 1.869e+06 > 1e+06) / ERROR: aborting run
+
+## cancel (case folder: C:\Users\rythm\Desktop\claude work\noether\Software_Engineering_Intern_Desktop)
+  cycle 1: cancelled | python solver processes: before cancel 2, right after 0, 5 s later 0 | heartbeat file left: false
+  cycle 2: cancelled | python solver processes: before cancel 2, right after 0, 5 s later 0 | heartbeat file left: false
+  cycle 3: cancelled | python solver processes: before cancel 2, right after 0, 5 s later 0 | heartbeat file left: false
+
+## page exceptions during the whole check: 0, console.error calls: 0
